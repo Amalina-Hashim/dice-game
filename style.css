@@ -129,3 +129,39 @@ button:disabled {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+  @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+    #game-info {
+      font-size: 18px;
+      text-align: center;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  @media only screen and (max-width: 412px) and (orientation: portrait) {
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+    #game-info {
+      font-size: 18px;
+      text-align: center;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
