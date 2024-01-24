@@ -6,23 +6,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const gameInfo = document.getElementById("game-info");
   const diceImage = document.getElementById("diceImage");
 
-  diceImage.src = "/images/dice6.png";
+  diceImage.src = "./images/dice6.png";
 
   let player1Position = 0;
   let player2Position = 0;
   let currentPlayer = 1;
 
   const diceImages = [
-    "/images/dice1.png",
-    "/images/dice2.png",
-    "/images/dice3.png",
-    "/images/dice4.png",
-    "/images/dice5.png",
-    "/images/dice6.png",
+    "./images/dice1.png",
+    "./images/dice2.png",
+    "./images/dice3.png",
+    "./images/dice4.png",
+    "./images/dice5.png",
+    "./images/dice6.png",
   ];
 
   function initializeGame() {
-    diceImage.src = "/images/dice6.png";
+    diceImage.src = "./images/dice6.png";
     player1Position = 0;
     player2Position = 0;
     currentPlayer = 1;
