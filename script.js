@@ -69,7 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const newPosition = playerPosition + diceRoll;
 
     if (newPosition > 10) {
-      return 10 - (newPosition - 10);
+      const bouncedBackSteps = newPosition - 10;
+      const bouncedBackMessage = `Oops, Player ${currentPlayer} bounced back! Rolled a ${diceRoll}. Current position is now: ${
+        10 - bouncedBackSteps
+      }`;
+      updateGameInfo(bouncedBackMessage);
+      return 10 - bouncedBackSteps;
     } else {
       return newPosition;
     }
@@ -97,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentPosition =
       currentPlayer === 1 ? player1Position : player2Position;
 
-    let bouncedBackMessage = "";
+    let message = "";
 
     if (currentPlayer === 1) {
       const newPosition = updatePosition(
@@ -106,9 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "player1",
         diceRoll
       );
-      if (newPosition < player1Position) {
-        bouncedBackMessage = `Oops, Player 1 bounced back! Rolled a ${diceRoll}. Current position is now: ${newPosition}`;
-      }
       player1Position = newPosition;
       updatePlayerPosition(player1Position, player1Board, "player1");
 
@@ -123,9 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "player2",
         diceRoll
       );
-      if (newPosition < player2Position) {
-        bouncedBackMessage = `Oops, Player 2 bounced back! Rolled a ${diceRoll}. Current position is now: ${newPosition}`;
-      }
       player2Position = newPosition;
       updatePlayerPosition(player2Position, player2Board, "player2");
 
@@ -137,9 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (getCurrentPlayerPosition() === 10) {
       const winnerPlayer = currentPlayer === 1 ? "Player 1" : "Player 2";
-      updateGameInfo(
-        `🏁 ${winnerPlayer} wins reaching position 10 first with dice count: ${diceRoll}!`
-      );
+      message = `🏁 ${winnerPlayer} wins reaching position 10 first with dice count: ${diceRoll}!`;
       rollDiceBtn.disabled = true;
 
       const winSound = document.getElementById("winSound");
@@ -147,20 +144,17 @@ document.addEventListener("DOMContentLoaded", function () {
         winSound.play();
       }
     } else {
-      const message = `Player ${currentPlayer} rolled a ${diceRoll}. Position is now: ${getCurrentPlayerPosition()}`;
-      updateGameInfo(message);
+      message = `Player ${currentPlayer} rolled a ${diceRoll}. Position is now: ${getCurrentPlayerPosition()}`;
 
-      if (bouncedBackMessage) {
-        updateGameInfo(bouncedBackMessage);
-      }
-
-      const move = document.getElementById("move");
-      if (move) {
-        move.play();
+      const bouncedBackMessage = gameInfo.innerHTML;
+      if (bouncedBackMessage.includes("bounced back")) {
+        message = bouncedBackMessage;
       }
 
       currentPlayer = currentPlayer === 1 ? 2 : 1;
     }
+
+    updateGameInfo(message);
   }
 
   function getCurrentPlayerPosition() {
