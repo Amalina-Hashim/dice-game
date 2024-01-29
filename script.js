@@ -149,6 +149,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const bouncedBackMessage = gameInfo.innerHTML;
       if (bouncedBackMessage.includes("bounced back")) {
         message = bouncedBackMessage;
+        const bounceback = document.getElementById("bounceback");
+        if (bounceback) {
+          bounceback.play();
+        }
       }
 
       currentPlayer = currentPlayer === 1 ? 2 : 1;
