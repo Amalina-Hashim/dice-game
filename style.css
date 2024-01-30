@@ -4,6 +4,11 @@ body {
   padding: 0;
   overflow: hidden;
   background: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .header-container {
@@ -131,13 +136,6 @@ button:disabled {
   }
 
   @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
     #game-info {
       font-size: 18px;
       text-align: center;
@@ -149,13 +147,6 @@ button:disabled {
   }
   
   @media only screen and (max-width: 412px) and (orientation: portrait) {
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
     #game-info {
       font-size: 18px;
       text-align: center;
