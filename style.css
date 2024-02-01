@@ -2,7 +2,7 @@ body {
   font-family: Helvetica, sans-serif;
   margin-top: 5px;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: pink;
   display: flex;
   flex-direction: column;
@@ -136,10 +136,6 @@ button:disabled {
   }
 
   @media only screen and (min-width: 600px) and (max-width: 768px) and (orientation: portrait) {
-    body {
-      display: flex;
-      justify-content: flex-start;
-    }
 
     #game-info {
       font-size: 18px;
@@ -153,8 +149,25 @@ button:disabled {
   
   @media only screen and (min-width: 375px) and (max-device-width: 375px) and (max-width: 412px) and (orientation: portrait) {
     body {
-      display: flex;
-      justify-content: flex-start;
+      min-height: 100dvh;
+    }
+    
+    .header-container {
+      margin-bottom: 0;
+    }
+
+    #buttons-container {
+      margin-bottom: 0;
+    }
+
+    #roll-dice-btn {
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    #restart-btn {
+      margin-bottom: 2px;
+      font-size: 13px;
     }
 
     #game-info {
