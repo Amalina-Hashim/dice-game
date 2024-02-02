@@ -2,7 +2,6 @@ body {
   font-family: Helvetica, sans-serif;
   margin-top: 5px;
   padding: 0;
-  /* overflow: hidden; */
   background: pink;
   display: flex;
   flex-direction: column;
