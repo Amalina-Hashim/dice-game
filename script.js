@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   }
 
-  function updatePosition(playerPosition, playerBoard, playerClass, diceRoll) {
+  function updatePosition(playerPosition, _playerBoard, _playerClass, diceRoll) {
     const newPosition = playerPosition + diceRoll;
 
     if (newPosition > 10) {
@@ -98,9 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleRollDice() {
     const diceRoll = rollDice();
     updateDiceImage(diceRoll);
-
-    const currentPosition =
-      currentPlayer === 1 ? player1Position : player2Position;
 
     let message = "";
 
